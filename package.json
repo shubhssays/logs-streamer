@@ -1,0 +1,29 @@
+{
+  "name": "logs-streamer",
+  "version": "1.0.0",
+  "description": "This app can stream logs to browser",
+  "main": "log_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhssays/logs-streamer.git"
+  },
+  "keywords": [
+    "logs-streamer"
+  ],
+  "author": "Shubham Kumar Shukla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shubhssays/logs-streamer/issues"
+  },
+  "homepage": "https://github.com/shubhssays/logs-streamer#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "execa": "^6.1.0",
+    "express": "^4.17.3",
+    "path": "^0.12.7",
+    "socket.io": "^4.4.1"
+  }
+}
