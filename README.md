@@ -2,7 +2,7 @@
 
 STEP 1: npm i
 
-STEP 2. create .env file and below 4 variables to it
+STEP 2. create .env file and below 3 variables to it
 
 HOST=localhost
 PORT=5555
