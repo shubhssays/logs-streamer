@@ -40,8 +40,17 @@ server.listen(process.env.PORT, process.env.HOST, function () {
  * We have added 5 seconds delay so that first this server could start. Further, this will trigger spawn process start the server
  * to which we want to monitor
  */
+//.spawn('node', ['server.js']);
+//pm2 start pm2.json
 setTimeout(() => {
-    let child = require("child_process").spawn('node', ['server.js']); //add your server command to execute here
+    let child = require("child_process").spawn('npm', [' run', ' multi_process_cluster_index'], {
+        shell: true
+    });
+    let child_pm2 = require("child_process").spawn('pm2', ['logs','index-primary','index-replica'], {
+        shell: true
+    }); //add your server command to execute here
+   
+   
     child.stdout.setEncoding("utf8");
     child.stdout.on("data", function (data) {
         console.log(data.toString());
@@ -62,6 +71,33 @@ setTimeout(() => {
 
     child.stderr.setEncoding("utf8");
     child.stderr.on("close", function (code) {
+        console.log('child process exited with code ' + code);
+        io.emit("pm2-logs", {
+            logs: 'child process exited with code ' + code,
+        });
+    });
+
+    // 
+
+    child_pm2.stdout.on("data", function (data) {
+        console.log(data.toString());
+        io.emit("pm2-logs", {
+            logs: data.toString(),
+        });
+    });
+
+
+    child_pm2.stderr.setEncoding("utf8");
+    child_pm2.stderr.on("data", function (data) {
+        console.log(data.toString());
+        data = data.toString();
+        io.emit("pm2-logs", {
+            logs: data.toString(),
+        });
+    });
+
+    child_pm2.stderr.setEncoding("utf8");
+    child_pm2.stderr.on("close", function (code) {
         console.log('child process exited with code ' + code);
         io.emit("pm2-logs", {
             logs: 'child process exited with code ' + code,

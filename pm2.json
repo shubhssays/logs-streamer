@@ -1,0 +1,25 @@
+{
+    "apps": [{
+            "script": "server.js",
+            "instances": "1",
+            "exec_mode": "cluster",
+            "name": "server-primary",
+            "env_production": {
+                "name": "server-primary",
+                "PORT": 3000,
+                "NODE_ENV": "production"
+            }
+        },
+        {
+            "script": "server.js",
+            "instances": "9",
+            "exec_mode": "cluster",
+            "name": "server-replica",
+            "env_production": {
+                "name": "server-replica",
+                "PORT": 3000,
+                "NODE_ENV": "production"
+            }
+        }
+    ]
+}

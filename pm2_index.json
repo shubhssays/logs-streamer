@@ -1,0 +1,25 @@
+{
+    "apps": [{
+            "script": "index.js",
+            "instances": "1",
+            "exec_mode": "cluster",
+            "name": "index-primary",
+            "env_production": {
+                "name": "index-primary",
+                "PORT": 3000,
+                "NODE_ENV": "production"
+            }
+        },
+        {
+            "script": "index.js",
+            "instances": "9",
+            "exec_mode": "cluster",
+            "name": "index-replica",
+            "env_production": {
+                "name": "index-replica",
+                "PORT": 3000,
+                "NODE_ENV": "production"
+            }
+        }
+    ]
+}

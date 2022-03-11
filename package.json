@@ -4,7 +4,10 @@
   "description": "This app can stream logs to browser",
   "main": "log_server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "multi_process_cluster_server":"pm2 start pm2.json",
+    "multi_process_cluster_index":"pm2 start pm2_index.json",
+    "multi_process_cluster_index1":"pm2 start index.js -i max"
   },
   "repository": {
     "type": "git",
