@@ -15,7 +15,7 @@ STEP 3: YOU CAN START THIS APP USING
              
              or
 
-      b. pm2 app.js
+      b. pm2 start log_server.js
 
 In case, if you don't have pm2, you can install by running below command on terminal 
 "**npm install pm2 -g**"
