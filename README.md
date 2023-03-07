@@ -1,6 +1,14 @@
 # logs-streamer
 
-**I have purposely added .env file, just for the sake of convinence**
+# NOTE - 
+
+1 .env file has been added purposely just for the sake of convience.
+2. server.js file is not mandatory for this project. It is placed here for testing
+   purpose. You can simply start it by "pm2 start server.js --name server".
+
+
+###### FEEL FREE TO USE IT ######   
+
 
 STEP 1: npm i
 
