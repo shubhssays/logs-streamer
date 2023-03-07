@@ -35,7 +35,6 @@
             if (document.readyState == "interactive") {
                 const socket = io("");
                 socket.on("pm2-logs", (logData) => {
-                    console.log("logs ===>", logData.logs)
                     if (document.getElementById("log-div").children.length > 100) {
                         document.getElementById("log-div").removeChild(document.getElementById("log-div").childNodes[0])
                     }

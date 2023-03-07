@@ -1,12 +1,16 @@
 # logs-streamer
 
+**I have purposely added .env file, just for the sake of convinence**
+
 STEP 1: npm i
 
 STEP 2. create .env file and below 3 variables to it
 
 HOST=localhost
 PORT=5555
-PERMITTED_IP_ADDRESS=127.0.0.1
+PERMITTED_IP_ADDRESS=127.0.0.1,::1
+PASSWORD=fdnjasidjtfoiwekoikeio
+APP_NAME=server
        
 
 STEP 3: YOU CAN START THIS APP USING
@@ -22,3 +26,9 @@ In case, if you don't have pm2, you can install by running below command on term
 
 STEP 4: You can add permitted ip as command separated value in .env file. Alternatively, you can connect this app with database.
         But, you need to take care that *PERMITTED_IP_ADDRESS* (**defined in log_server.js**) should be comma separated string.
+
+        
+STEP 5: If your IP is not listed *PERMITTED_IP_ADDRESS*, then to access logs you will need to enter password. You can also specify the *PASSWORD* in .env file. If password is not specified random strong password will be automatically created. 
+
+STEP 6: Please make sure that *APP_NAME* should be already running using pm2.
+        This field cannot be empty. 
